@@ -1,0 +1,9 @@
+POST http://localhost:3001/api/blogs
+Content-Type: application/json
+
+{
+  "title": "Crafting a Business Oriented Developer Portfolio that Stands Out",
+  "author": "joel hooks",
+  "url": "joelhooks.com/developer-portfolio",
+  "likes": 5
+}
