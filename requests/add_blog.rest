@@ -2,8 +2,10 @@ POST http://localhost:3002/api/blogs
 Content-Type: application/json
 
 {
-  "title": "How to write a good README for your GitHub project?",
-  "author": "Rita Łyczywek",
-  "url": "https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project"
+  "title": "ES6 Tutorials : SPREAD Operator with Fun",
+  "author": "romeo11",
+  "url": "https://www.codingame.com/playgrounds/7998/es6-tutorials-spread-operator-with-fun",
+  "likes": 3,
+  "userId": "61ab2a7a19eff25b6da86bf9"
 
 }
