@@ -17,8 +17,8 @@ blogRouter.get("/:id", async (request, response) => {
 });
 
 blogRouter.post("/", async (request, response) => {
+  const user = request.user;
   const body = request.body;
-  const user = await User.findById(body.userId);
   //Check if new blog has like property, if it does not we add a default like property
   !body.hasOwnProperty("likes") && (body["likes"] = 0);
 
@@ -36,7 +36,20 @@ blogRouter.post("/", async (request, response) => {
 });
 
 blogRouter.delete("/:id", async (request, response) => {
-  await Blog.findByIdAndRemove(request.params.id);
+  const user = request.user;
+  const blog = await Blog.findById(request.params.id);
+
+  if (blog.user.toString() !== user.id.toString()) {
+    return response
+      .status(401)
+      .json({ error: "Invalid request, only the creator can delete blogs" });
+  }
+
+  user.blogs = user.blogs.filter(
+    (blog) => blog.toString() !== blog.id.toString()
+  );
+  await blog.remove();
+  await user.save();
   response.status(204).end();
 });
 

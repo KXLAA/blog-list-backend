@@ -1,11 +1,11 @@
 POST http://localhost:3002/api/blogs
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikt4bGEiLCJpZCI6IjYxYWI1ZTgxNmJlZTFmYjg0ODY4ODVlNCIsImlhdCI6MTYzODYyMDgyMH0.42mGCvbxN7G44P29RS_ZOaBaOFLSo6JOKaxtv_Ct4tg
 
 {
-  "title": "ES6 Tutorials : SPREAD Operator with Fun",
-  "author": "romeo11",
+  "title": "Dont be stypid, stupid Wyling",
+  "author": "Wyling May",
   "url": "https://www.codingame.com/playgrounds/7998/es6-tutorials-spread-operator-with-fun",
-  "likes": 3,
-  "userId": "61ab2a7a19eff25b6da86bf9"
-
+  "likes": 7,
+  "userId": "61ab5e816bee1fb8486885e4"
 }
