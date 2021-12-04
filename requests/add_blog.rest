@@ -2,8 +2,8 @@ POST http://localhost:3002/api/blogs
 Content-Type: application/json
 
 {
-  "title": "All day aal Night",
-  "author": "Mawan",
-  "url": "https://jestjs.io/docs/expect#tobedefined",
-  "likes": 40
+  "title": "How to write a good README for your GitHub project?",
+  "author": "Rita Łyczywek",
+  "url": "https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project"
+
 }
