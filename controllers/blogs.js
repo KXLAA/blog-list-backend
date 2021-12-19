@@ -1,6 +1,7 @@
 const blogRouter = require("express").Router();
 const Blog = require("../models/blog");
 const User = require("../models/user");
+const { userExtractor } = require("../utils/middleware");
 
 blogRouter.get("/", async (request, response) => {
   const blogs = await Blog.find({}).populate("user", { username: 1, name: 1 });
@@ -16,7 +17,7 @@ blogRouter.get("/:id", async (request, response) => {
   }
 });
 
-blogRouter.post("/", async (request, response) => {
+blogRouter.post("/", userExtractor, async (request, response) => {
   const user = request.user;
   const body = request.body;
   //Check if new blog has like property, if it does not we add a default like property
@@ -35,7 +36,7 @@ blogRouter.post("/", async (request, response) => {
   response.json(savedBlog);
 });
 
-blogRouter.delete("/:id", async (request, response) => {
+blogRouter.delete("/:id", userExtractor, async (request, response) => {
   const user = request.user;
   const blog = await Blog.findById(request.params.id);
 
@@ -53,7 +54,7 @@ blogRouter.delete("/:id", async (request, response) => {
   response.status(204).end();
 });
 
-blogRouter.put("/:id", async (request, response) => {
+blogRouter.put("/:id", userExtractor, async (request, response) => {
   const body = request.body;
 
   const blog = {
